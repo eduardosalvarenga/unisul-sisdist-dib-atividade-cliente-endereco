@@ -30,7 +30,8 @@ public class EnderecoController {
     @GetMapping("/lambda")
     public List<EnderecoDTO> listarTodosEnderecosUsandoLambda(){
         List<Endereco> enderecoList = enderecoRepository.findAll();
-        return enderecoList.stream().map(EnderecoDTO::new).collect(Collectors.toCollection(ArrayList::new));
+        return enderecoList.stream().map(EnderecoDTO::new)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
     @GetMapping("/{cep}")
     public EnderecoDTO buscarPorCEP(@PathVariable(name = "cep")Integer cep){
