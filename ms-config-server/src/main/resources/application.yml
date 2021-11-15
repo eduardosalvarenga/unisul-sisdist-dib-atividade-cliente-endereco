@@ -5,6 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/edson-lessa-jr/proj-config.git
+          uri: https://github.com/eduardosalvarenga/proj-config
           username: ${USER}
           password: ${PASS}
+          default-label: main

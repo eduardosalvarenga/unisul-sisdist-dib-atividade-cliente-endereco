@@ -1,6 +1,7 @@
 package br.unisul.aula.msendereco.controle;
 
 import br.unisul.aula.msendereco.dtos.EnderecoDTO;
+import br.unisul.aula.msendereco.dtos.CidadeDTO;
 import br.unisul.aula.msendereco.dtos.EnderecoViaCEPDTO;
 import br.unisul.aula.msendereco.modelo.Endereco;
 import br.unisul.aula.msendereco.repositorio.EnderecoRepository;
@@ -38,8 +39,18 @@ public class EnderecoController {
         return new EnderecoDTO(enderecoRepository.findFirstByCep(cep));
     }
     @GetMapping("/id/{id}")
-    public EnderecoDTO buscarPorCEP(@PathVariable(name = "id")Long id){
+    public EnderecoDTO buscarPorId(@PathVariable(name = "id")Long id){
         return new EnderecoDTO(enderecoRepository.getById(id));
+    }
+
+    @GetMapping("/cidade/{cidade}")
+    public List<CidadeDTO> buscarPelaCidade(@PathVariable(name = "cidade") String cidade) {
+        List<CidadeDTO> dtos = new ArrayList<>();
+        for (Endereco endereco: enderecoRepository.findAllByCidadeIgnoreCase(cidade)){
+            CidadeDTO dto = new CidadeDTO(endereco);
+            dtos.add(dto);
+        }
+        return dtos;
     }
 
     @PostMapping("/")

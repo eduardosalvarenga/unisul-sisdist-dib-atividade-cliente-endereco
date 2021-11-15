@@ -2,6 +2,8 @@ package br.unisul.aula.mscliente.dto;
 
 import br.unisul.aula.mscliente.modelo.Cliente;
 
+import java.util.function.Predicate;
+
 public class ClienteDTO {
 
     private Long id;

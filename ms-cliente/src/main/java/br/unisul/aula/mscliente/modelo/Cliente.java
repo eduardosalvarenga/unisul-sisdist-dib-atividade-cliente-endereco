@@ -9,7 +9,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_cliente")
     private Long id;
     private String nome;
-    private Long endereco_id;
+    private Long enderecoId;
     private String complemento;
     private Integer numero;
 
@@ -33,11 +33,11 @@ public class Cliente {
     }
 
     public Long getEndereco_id() {
-        return endereco_id;
+        return enderecoId;
     }
 
     public void setEndereco_id(Long endereco_id) {
-        this.endereco_id = endereco_id;
+        this.enderecoId = endereco_id;
     }
 
     public String getComplemento() {
@@ -61,9 +61,10 @@ public class Cliente {
         return "Cliente{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", endereco_id=" + endereco_id +
+                ", endereco_id=" + enderecoId +
                 ", complemento='" + complemento + '\'' +
                 ", numero=" + numero +
                 '}';
     }
+
 }
